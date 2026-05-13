@@ -65,51 +65,53 @@ class HomeScreen extends StatelessWidget {
               _GoalBanner(session: session).animate().fadeIn(delay: 50.ms, duration: 300.ms),
               const SizedBox(height: 4),
               Expanded(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Container(
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(16),
-                        boxShadow: [
-                          BoxShadow(
-                            color: VeinTheme.maroonDeep.withValues(alpha: 0.35),
-                            blurRadius: 18,
-                            offset: const Offset(0, 6),
+                child: SingleChildScrollView(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(16),
+                          boxShadow: [
+                            BoxShadow(
+                              color: VeinTheme.maroonDeep.withValues(alpha: 0.35),
+                              blurRadius: 18,
+                              offset: const Offset(0, 6),
+                            ),
+                          ],
+                        ),
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.of(context).pushNamed(VeinRoutes.workoutsHub);
+                          },
+                          child: Text(
+                            'START WORKOUT',
+                            style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                                  color: VeinTheme.maroonDeep,
+                                  letterSpacing: 1.4,
+                                ),
+                          ),
+                        ),
+                      ).animate().fadeIn(delay: 80.ms, duration: 220.ms),
+                      const SizedBox(height: 32),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: _StreakStat(
+                              streak: streak,
+                              last: last,
+                              history: history.map((e) => e.completedAt).toList(),
+                            ),
+                          ),
+                          const SizedBox(width: 14),
+                          Expanded(
+                            child: _SessionsStat(count: history.length),
                           ),
                         ],
-                      ),
-                      child: ElevatedButton(
-                        onPressed: () {
-                          Navigator.of(context).pushNamed(VeinRoutes.workoutsHub);
-                        },
-                        child: Text(
-                          'START WORKOUT',
-                          style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                                color: VeinTheme.maroonDeep,
-                                letterSpacing: 1.4,
-                              ),
-                        ),
-                      ),
-                    ).animate().fadeIn(delay: 80.ms, duration: 220.ms),
-                    const SizedBox(height: 32),
-                    Row(
-                      children: [
-                        Expanded(
-                          child: _StreakStat(
-                            streak: streak,
-                            last: last,
-                            history: history.map((e) => e.completedAt).toList(),
-                          ),
-                        ),
-                        const SizedBox(width: 14),
-                        Expanded(
-                          child: _SessionsStat(count: history.length),
-                        ),
-                      ],
-                    ).animate().fadeIn(delay: 140.ms, duration: 220.ms),
-                  ],
+                      ).animate().fadeIn(delay: 140.ms, duration: 220.ms),
+                    ],
+                  ),
                 ),
               ),
               Padding(
