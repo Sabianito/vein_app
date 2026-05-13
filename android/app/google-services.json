@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "783686274068",
+    "project_id": "veinveinvein-a5bfc",
+    "storage_bucket": "veinveinvein-a5bfc.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:783686274068:android:ababf657b5913b06702b01",
+        "android_client_info": {
+          "package_name": "com.example.vein"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "783686274068-t09sh1arpviuvr9fm16a4u7kb41r82f5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.vein",
+            "certificate_hash": "0698155ec368eb4bbc96c99716f17b3c5f828fa6"
+          }
+        },
+        {
+          "client_id": "783686274068-q8cu08m75huqii7o74v2vliralbg1giq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwgpMaERj67giH0r0R1FJ-G9C-CzeOY9c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "783686274068-q8cu08m75huqii7o74v2vliralbg1giq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
