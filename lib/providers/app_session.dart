@@ -123,13 +123,14 @@ class AppSession extends ChangeNotifier {
   Future<void> _syncToCloud() async {
     if (_user == null || _user!.isGuest) return;
     try {
+      await FirebaseService.instance.saveUserProfile(_user!);
       await Future.wait([
-        FirebaseService.instance.saveUserProfile(_user!),
         FirebaseService.instance.saveWorkoutHistory(_history),
         FirebaseService.instance.saveExerciseStats(_exerciseStats),
         FirebaseService.instance.saveUserPreferences(_userPreferences),
       ]);
-    } catch (_) {
+    } catch (e) {
+      debugPrint('Cloud sync failed: $e');
     }
   }
 
@@ -159,7 +160,6 @@ class AppSession extends ChangeNotifier {
         displayName: (displayName?.trim().isEmpty ?? true) ? 'vein user' : displayName!.trim(),
         isGuest: false,
       );
-      await FirebaseService.instance.saveUserProfile(_user!);
       _history.clear();
       _exerciseStats.clear();
       await _save();

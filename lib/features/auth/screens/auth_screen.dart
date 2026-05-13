@@ -82,7 +82,7 @@ class _AuthScreenState extends State<AuthScreen> {
                 letterSpacing: 0.6,
                 fontWeight: FontWeight.w600,
               ),
-            ).animate().fadeIn(duration: 220.ms),
+            ),
             const SizedBox(height: 8),
             Text(
               _isLogin
@@ -92,7 +92,7 @@ class _AuthScreenState extends State<AuthScreen> {
                 color: VeinTheme.cream.withValues(alpha: 0.78),
                 height: 1.3,
               ),
-            ).animate().fadeIn(delay: 60.ms, duration: 220.ms),
+            ),
             const SizedBox(height: 22),
             if (!_isLogin) ...[
               TextField(
@@ -103,7 +103,7 @@ class _AuthScreenState extends State<AuthScreen> {
                   labelText: 'Display name',
                   hintText: 'e.g. Mia',
                 ),
-              ).animate().fadeIn(delay: 80.ms, duration: 200.ms),
+              ),
               const SizedBox(height: 12),
             ],
             TextField(
@@ -115,7 +115,7 @@ class _AuthScreenState extends State<AuthScreen> {
                 labelText: 'Email',
                 hintText: 'you@example.com',
               ),
-            ).animate().fadeIn(delay: 90.ms, duration: 200.ms),
+            ),
             const SizedBox(height: 12),
             TextField(
               controller: _password,
@@ -127,7 +127,7 @@ class _AuthScreenState extends State<AuthScreen> {
                 labelText: 'Password',
                 hintText: '\u2022\u2022\u2022\u2022',
               ),
-            ).animate().fadeIn(delay: 100.ms, duration: 200.ms),
+            ),
             const SizedBox(height: 18),
             SizedBox(
               width: double.infinity,
@@ -202,7 +202,7 @@ class _AuthScreenState extends State<AuthScreen> {
                   ),
                 ],
               ),
-            ).animate().fadeIn(delay: 140.ms, duration: 220.ms),
+            ),
           ],
         ),
       ),

@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/foundation.dart';
 
 import '../models/models.dart';
 
@@ -9,7 +10,11 @@ class FirebaseService {
   static final FirebaseService instance = FirebaseService._();
 
   static Future<void> initialize() async {
-    await Firebase.initializeApp();
+    try {
+      await Firebase.initializeApp();
+    } catch (e) {
+      debugPrint('Firebase init failed: $e');
+    }
   }
 
   static Future<bool> connectivityCheck() async {
